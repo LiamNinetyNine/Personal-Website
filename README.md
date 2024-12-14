@@ -5,3 +5,6 @@
 
 https://docs.djangoproject.com/
 https://nicegui.io/
+
+
+liamninetynine is the app
