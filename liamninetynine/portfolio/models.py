@@ -1,7 +1,19 @@
 # Create your models here.
 from django.db import models
+from datetime import date
 
 
-class Project(models.Model): #the self of this class is the models.Model
-    project_name = models.CharField(max_length=200)
-    project_url = models.CharField(max_length=200)
+class Portfolio(models.Model):
+    name = models.CharField(max_length=100)
+    tagline = models.TextField()
+    def __str__(self):
+        return self.name
+
+class Project(models.Model):
+    project = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+    project_title = models.CharField(max_length=255)
+    project_description = models.TextField()
+    pub_date = models.DateField()
+    mod_date = models.DateField(default=date.today)
+    def __str__(self):
+        return self.project_title
